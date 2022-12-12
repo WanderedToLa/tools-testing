@@ -21,3 +21,8 @@ test("1 is 1", () => {
   expect(1).toBe(1);
 });
 ```
+
+## Run Jest
+
+- `npm test`
+- 특정 파일만 실행 시키고 싶은 경우 `npm test <특정 파일명>`

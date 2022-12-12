@@ -7,7 +7,7 @@ test("1 is 1", () => {
 });
 
 /**
- * @description Matcher
+ * @description Matcher toBe 대신 toEqual , toStrictEqual 사용하도록 권장
  */
 
 function getUser(id) {
@@ -22,4 +22,9 @@ test("user의 정보를 반환합니다.", () => {
     id: 1,
     email: `user1@test.com`,
   });
+});
+
+test(`number 0 is false but string '0' is true`, () => {
+  expect(0).toBeFalsy(); // false로 간주 되는경우 test 통과
+  expect("0").toBeTruthy(); // true 로 간주
 });
