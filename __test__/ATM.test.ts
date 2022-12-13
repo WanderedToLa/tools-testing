@@ -1,8 +1,8 @@
-let sum = 0;
-let time = 0;
+let sum: number = 0;
+let time: number = 0;
 
-function ATM(...p) {
-  const arr = [...p];
+function ATM(...p: number[]) {
+  const arr: number[] = [...p];
   arr.sort();
   for (let i = 0; i <= arr.length; i++) {
     sum += i;
