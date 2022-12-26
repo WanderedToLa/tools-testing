@@ -1,6 +1,7 @@
 # Start Jest
 
 - `npm i --save-dev @types/jest`
+- 테스트 코드를 작성하는 이유? 22.12.26
 
 ## package.json
 
