@@ -9,11 +9,12 @@ jobs:
   label-pr:
     strategy:
       matrix:
+        feature: [feat, 기능, 추가]
         refactor: [refactor, 리팩토링]
     runs-on: ubuntu-latest
     steps:
       - uses: netlify/pr-labeler-action@v1.0.0
-        if: contains(github.event.pull_request.title, 'feat')
+        if: ${{contains(github.event.pull_request.title , matrix.feature)}}
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           label: "Feature"
