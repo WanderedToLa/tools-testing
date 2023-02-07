@@ -1,9 +1,5 @@
 labels:
   "enhancement":
-    include:
-      - '\bfeat\b'
-    exclude: []
+    - '\bfeat\b'
   "refactor":
-    include:
-      - '\brefactor\b'
-    exclude: []
+    - '\brefactor\b'
