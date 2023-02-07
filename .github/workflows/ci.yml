@@ -8,8 +8,6 @@ on:
 jobs:
   label_pull_request:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
     steps:
       - uses: actions/github-script@v6
         with:
