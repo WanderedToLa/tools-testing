@@ -1,12 +1,12 @@
 name: "ci labels"
 
 on:
-  pull_request:
+  issues:
     types:
       - reopened
       - opened
 jobs:
-  label_pull_request:
+  label_issues:
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -14,7 +14,7 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.pull_request.addLabels({
+            github.rest.issues.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
