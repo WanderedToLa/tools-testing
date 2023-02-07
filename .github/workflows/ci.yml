@@ -1,17 +1,21 @@
-name: Auto Labels
+name: Label PR
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - reopened
 
 jobs:
-  labeler:
+  label-pr:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check Labels
-        id: labeler
-        uses: jimschubert/labeler-action@v2
+      - uses: netlify/pr-labeler-action@v1.0.0
+        if: contains(github.event.pull_request.title, 'feat')
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "type: enhancement"
+      - uses: netlify/pr-labeler-action@v1.0.0
+        if: contains(github.event.pull_request.title, 'refactor')
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "type: refactor"
