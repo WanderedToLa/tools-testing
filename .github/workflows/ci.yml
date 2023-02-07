@@ -16,8 +16,8 @@ jobs:
           label: "Feature"
       - uses: netlify/pr-labeler-action@v1.0.0
         if: |
-          let refactorTitle = ['refactor' , '리팩토링']
-          contains(github.event.pull_request.title, for i in refactorTitle)
+          refactorTitle = 'refactor 리팩토링'
+          contains(github.event.pull_request.title, for i in $refactorTitle)
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           label: "refactor"
