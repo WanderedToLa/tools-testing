@@ -12,4 +12,4 @@ comment: |
 # - values are array of string patterns to match against title + body in issues/prs
 labels:
   "enhancement":
-    - '\bfeat\b'
+    - ".*" + "feat" + ".*"
