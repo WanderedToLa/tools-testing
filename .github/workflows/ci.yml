@@ -1,15 +1,17 @@
-name: "Pull Request Labeler"
-
+name: Auto Labels
 on:
-  pull_request:
-    types:
-      - reopened
-      - opened
+  issues:
+    types: [opened, edited, milestoned]
+  pull_request_target:
+    types: [opened, reopened]
 
 jobs:
-  autoLabels:
+  labeler:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: jimschubert/labeler-action@v1
+      - name: Check Labels
+        id: labeler
+        uses: jimschubert/labeler-action@v2
         with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
