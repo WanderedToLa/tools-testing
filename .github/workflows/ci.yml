@@ -1,7 +1,7 @@
 name: "ci labels"
 
 on:
-  issue:
+  issues:
     types:
       - reopened
       - opened
