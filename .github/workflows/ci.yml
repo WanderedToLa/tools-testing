@@ -13,9 +13,9 @@ jobs:
         if: contains(github.event.pull_request.title, 'feat')
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-          label: "type: enhancement"
+          label: "Feature"
       - uses: netlify/pr-labeler-action@v1.0.0
         if: contains(github.event.pull_request.title, 'refactor')
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
-          label: "type: refactor"
+          label: "refactor"
