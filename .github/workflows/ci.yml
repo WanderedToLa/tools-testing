@@ -19,7 +19,7 @@ jobs:
           label: "Feature"
 
       - uses: netlify/pr-labeler-action@v1.0.0
-        if: contains(github.event.pull_request.title, ${{ matrix.refactor }})
+        if: ${{contains(github.event.pull_request.title , matrix.refactor)}}
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           label: "refactor"
