@@ -1,3 +1,13 @@
-refactor: ["contains(github.event.pull_request.title , 'refactor')", "*"]
-
-Feature: ["contains(github.event.pull_request.title , 'feat')", "*"]
+autolabeler:
+  - label: "refactor"
+    files:
+      - "*"
+    branch:
+      - ".*"
+    title:
+      - "/refactor/i"
+  - label: "Feature"
+    branch:
+      - ".*"
+    title:
+      - "/feat/i"
