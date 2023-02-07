@@ -1,2 +1,6 @@
-refactor: ["refactor", "*"]
-Feature: ["feat", "*"]
+refactor:
+  - any: ["refactor", "*"]
+    all: ["refactor", "*"]
+Feature:
+  - any: ["feat", "*"]
+    all: ["feat", "*"]
