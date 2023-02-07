@@ -1,13 +1,9 @@
-autolabeler:
-  - label: "refactor"
-    files:
-      - "*"
-    branch:
-      - ".*"
-    title:
-      - "/refactor/i"
-  - label: "Feature"
-    branch:
-      - ".*"
-    title:
-      - "/feat/i"
+labels:
+  "enhancement":
+    include:
+      - '\bfeat\b'
+    exclude: []
+  "refactor":
+    include:
+      - '\brefactor\b'
+    exclude: []
