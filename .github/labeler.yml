@@ -1,5 +1,2 @@
-labels:
-  "enhancement":
-    - '\bfeat\b'
-  "refactor":
-    - '\brefactor\b'
+refactor: ["refactor", "*"]
+Feature: ["feat", "*"]
