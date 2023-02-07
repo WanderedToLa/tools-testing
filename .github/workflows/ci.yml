@@ -7,6 +7,9 @@ on:
 
 jobs:
   label-pr:
+   strategy:
+      matrix:
+        refactor: [refactor , 리팩토링]
     runs-on: ubuntu-latest
     steps:
       - uses: netlify/pr-labeler-action@v1.0.0
@@ -16,7 +19,7 @@ jobs:
           label: "Feature"
 
       - uses: netlify/pr-labeler-action@v1.0.0
-        if: contains(github.event.pull_request.title, fromJson('["refactor", "리팩토링"]'))
+        if: contains(github.event.pull_request.title, ${{ matrix.refactor }})
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           label: "refactor"
