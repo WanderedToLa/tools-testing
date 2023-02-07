@@ -1,5 +1,3 @@
-refactor:
-  - any: ["refactor", "*"]
+refactor: ["contains(github.event.pull_request.title , 'refactor')", "*"]
 
-Feature:
-  - any: ["feat", "*"]
+Feature: ["contains(github.event.pull_request.title , 'feat')", "*"]
