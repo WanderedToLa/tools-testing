@@ -1,0 +1,3 @@
+if: "contains(github.event.pull_request.title , 'refactor')"
+refactor:
+  - "*"

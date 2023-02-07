@@ -1,22 +1,18 @@
-name: "ci labels"
+name: "Pull Request Labeler"
 
 on:
-  issues:
+  pull_request:
     types:
       - reopened
       - opened
+
 jobs:
-  label_issues:
-    runs-on: ubuntu-latest
+  triage:
     permissions:
-      issues: write
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: actions/labeler@v4
         with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ["triage"]
-            })
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
