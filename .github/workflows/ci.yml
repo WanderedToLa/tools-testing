@@ -1,7 +1,7 @@
 name: "ci labels"
 
 on:
-  pull_request:
+  issue:
     types:
       - reopened
       - opened
@@ -13,7 +13,7 @@ jobs:
         uses: actions/github-script@v6.4.0
         with:
           script: |
-            github.rest.pull_request.addLabels({
+            github.rest.issue.addLabels({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
