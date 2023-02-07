@@ -7,9 +7,9 @@ on:
 
 jobs:
   label-pr:
-   strategy:
+    strategy:
       matrix:
-        refactor: [refactor , 리팩토링]
+        refactor: [refactor, 리팩토링]
     runs-on: ubuntu-latest
     steps:
       - uses: netlify/pr-labeler-action@v1.0.0
