@@ -1,8 +1,5 @@
-if: "contains(github.event.pull_request.title , 'refactor')"
-refactor:
-  - "*"
-
-
-if: "contains(github.event.pull_request.title , 'feat')"
-Feature:
-  - "*"
+labels:
+  "enhancement":
+    - '\bfeat\b'
+  "refactor":
+    - '\brefactor\b'
