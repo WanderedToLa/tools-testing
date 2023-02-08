@@ -1,18 +1,37 @@
-name: "Pull Request Labeler"
-
+name: Labeler
 on:
   pull_request:
     types:
-      - reopened
       - opened
+      - reopened
 
 jobs:
-  triage:
-    permissions:
-      contents: read
-      pull-requests: write
+  autoAssign:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v4
+      - uses: toshimaru/auto-author-assign@v1.6.2
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+  autoLabel:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: netlify/pr-labeler-action@v1.0.0
+        if: contains(github.event.pull_request.title, 'Feat') || contains(github.event.pull_request.title, '기능') || contains(github.event.pull_request.title, '추가') || contains(github.head_ref , 'feat')
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "Feature"
+      - uses: netlify/pr-labeler-action@v1.0.0
+          if: contains(github.event.pull_request.title, 'Refactor') || contains(github.event.pull_request.title, '리팩토링') || contains(github.head_ref , 'refactor')
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            label: 'refactor'
+      - uses: netlify/pr-labeler-action@v1.0.0
+          if: contains(github.event.pull_request.title, 'UI') || contains(github.event.pull_request.title, '디자인') || contains(github.head_ref , 'layout') || contains(github.head_ref , 'ui')
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            label: 'UI'
+      - uses: netlify/pr-labeler-action@v1.0.0
+          if: contains(github.event.pull_request.title, 'Fix') || contains(github.event.pull_request.title, '수정') || contains(github.event.pull_request.title, '이슈')  || contains(github.head_ref , 'fix')
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            label: 'Bug'
