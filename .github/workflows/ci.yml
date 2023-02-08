@@ -1,4 +1,4 @@
-name: Label PR
+name: Labeler
 on:
   pull_request:
     types:
@@ -6,23 +6,20 @@ on:
       - reopened
 
 jobs:
-  autoAssign:
+  autoLabeler:
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-  # label1:
-  #   if: ${{contains(github.event.pull_request.title , matrix.feature)}}
-  #   strategy:
-  #     matrix:
-  #       feature: [feat, 기능, 추가]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: netlify/pr-labeler-action@v1.0.0
-  #       with:
-  #         token: "${{ secrets.GITHUB_TOKEN }}"
-  #         label: "Feature"
+
+    runs-on: ubuntu-latest
+    if: ${{contains(github.event.pull_request.title , 'Feat')}} || ${{contains(github.event.pull_request.title , '기능')}} || ${{contains(github.event.pull_request.title , '추가')}}
+    steps:
+      - uses: netlify/pr-labeler-action@v1.0.0
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "Feature"
   # label2:
   #   if: ${{contains(github.event.pull_request.title , matrix.refactor)}}
   #   strategy:
