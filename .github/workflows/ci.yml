@@ -30,6 +30,7 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           label: "refactor"
+    runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.2
         with:
