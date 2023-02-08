@@ -13,7 +13,6 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-    runs-on: ubuntu-latest
     if: ${{contains(github.event.pull_request.title , 'Feat')}} || ${{contains(github.event.pull_request.title , '기능')}} || ${{contains(github.event.pull_request.title , '추가')}}
     steps:
       - uses: netlify/pr-labeler-action@v1.0.0
