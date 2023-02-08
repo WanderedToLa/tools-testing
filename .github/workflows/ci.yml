@@ -16,18 +16,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: netlify/pr-labeler-action@v1.0.0
-        if: contains(github.event.pull_request.title, 'Feat') || contains(github.event.pull_request.title, '기능') || contains(github.event.pull_request.title, '추가')
+        if: contains(github.event.pull_request.title, 'Feat') || contains(github.event.pull_request.title, '기능') || contains(github.event.pull_request.title, '추가') || contains(github.head_ref , 'feat')
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           label: "Feature"
-  # label2:
-  #   if: ${{contains(github.event.pull_request.title , matrix.refactor)}}
-  #   strategy:
-  #     matrix:
-  #       refactor: [리팩토링]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: netlify/pr-labeler-action@v1.0.0
-  #       with:
-  #         token: "${{ secrets.GITHUB_TOKEN }}"
-  #         label: "refactor"
+      - uses: netlify/pr-labeler-action@v1.0.0
+          if: contains(github.event.pull_request.title, 'Refactor') || contains(github.event.pull_request.title, '리팩토링') || contains(github.head_ref , 'refactor')
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            label: 'refactor'
+      - uses: netlify/pr-labeler-action@v1.0.0
+          if: contains(github.event.pull_request.title, 'UI') || contains(github.event.pull_request.title, '디자인') || contains(github.head_ref , 'layout') || contains(github.head_ref , 'ui')
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            label: 'UI'
+      - uses: netlify/pr-labeler-action@v1.0.0
+          if: contains(github.event.pull_request.title, 'Fix') || contains(github.event.pull_request.title, '수정') || contains(github.event.pull_request.title, '이슈')  || contains(github.head_ref , 'fix')
+          with:
+            token: '${{ secrets.GITHUB_TOKEN }}'
+            label: 'Bug'
