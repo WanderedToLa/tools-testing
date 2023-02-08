@@ -12,25 +12,25 @@ jobs:
       - uses: toshimaru/auto-author-assign@v1.6.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-  label1:
-    if: ${{contains(github.event.pull_request.title , matrix.feature)}}
-    strategy:
-      matrix:
-        feature: [feat, 기능, 추가]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: netlify/pr-labeler-action@v1.0.0
-        with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-          label: "Feature"
-  label2:
-    if: ${{contains(github.event.pull_request.title , matrix.refactor)}}
-    strategy:
-      matrix:
-        refactor: [리팩토링]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: netlify/pr-labeler-action@v1.0.0
-        with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
-          label: "refactor"
+  # label1:
+  #   if: ${{contains(github.event.pull_request.title , matrix.feature)}}
+  #   strategy:
+  #     matrix:
+  #       feature: [feat, 기능, 추가]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: netlify/pr-labeler-action@v1.0.0
+  #       with:
+  #         token: "${{ secrets.GITHUB_TOKEN }}"
+  #         label: "Feature"
+  # label2:
+  #   if: ${{contains(github.event.pull_request.title , matrix.refactor)}}
+  #   strategy:
+  #     matrix:
+  #       refactor: [리팩토링]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: netlify/pr-labeler-action@v1.0.0
+  #       with:
+  #         token: "${{ secrets.GITHUB_TOKEN }}"
+  #         label: "refactor"
