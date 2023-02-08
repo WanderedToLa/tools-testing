@@ -6,16 +6,17 @@ on:
       - reopened
 
 jobs:
-  autoLabeler:
+  autoAssign:
     runs-on: ubuntu-latest
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-    if: ${{contains(github.event.pull_request.title , 'Feat')}} || ${{contains(github.event.pull_request.title , '기능')}} || ${{contains(github.event.pull_request.title , '추가')}}
+  autoLabel:
+    runs-on: ubuntu-latest
     steps:
       - uses: netlify/pr-labeler-action@v1.0.0
+        if: contains(github.event.pull_request.title, 'Feat') || contains(github.event.pull_request.title, '기능') || contains(github.event.pull_request.title, '추가')
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           label: "Feature"
