@@ -23,4 +23,6 @@
   });
   ```
 
+# CI / CD - Github Action
+
 # E2E TEST - Cypress
