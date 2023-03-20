@@ -1,4 +1,6 @@
 module.exports = {
+    collectCoverage: true,
+    collectCoverageFrom: ['lib/**/*.js'],
     preset: 'ts-jest',
     testEnvironment: 'node',
     transform: {
