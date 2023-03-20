@@ -1,11 +1,11 @@
-# Module TEST - Jest
+## Unit Test - Jest
 
 - `npm i --save-dev @types/jest`
 - `npm test`
   > 특정 파일만 실행 시키고 싶은 경우 `npm test <특정 파일명>`
 - ## package.json
 
-  ```javascript
+  ```json
   "scripts": {
       "test": "jest"
     },
@@ -22,7 +22,6 @@
     expect(1).toBe(1);
   });
   ```
+  
+## Bundler
 
-# CI / CD - Github Action
-
-# E2E TEST - Cypress
