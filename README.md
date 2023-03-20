@@ -23,6 +23,6 @@
   });
   ```
   
-test
+test2
   
 ## Bundler
